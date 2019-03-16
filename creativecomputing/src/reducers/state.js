@@ -1,5 +1,6 @@
 const initialState = {
-  display:null
+  display:false,
+  module:null
 }
 
 const newState = (state = initialState, action) => {
@@ -7,6 +8,7 @@ const newState = (state = initialState, action) => {
     case 'CHANGE_DISPLAY':
       return Object.assign({}, state, {
         module: action.module,
+        display: action.display
       })
 
     default:

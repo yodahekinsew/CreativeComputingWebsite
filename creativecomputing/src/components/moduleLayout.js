@@ -3,8 +3,10 @@ import '../App.css';
 import Mission from "./mission.js"
 import Module from "./module.js"
 import Projects from "./projects.js"
+import { connect } from 'react-redux';
+import {changeDisplay} from '../actions';
 
-class Home extends Component {
+class ModuleLayout extends Component {
   constructor() {
     super();
   }
@@ -27,9 +29,27 @@ class Home extends Component {
           <Module title="test 2"/>
           <Module title="test 3"/>
         </div>
+        <div style={{position:'absolute'}}>
+        {
+          this.props.display
+          ?
+          this.props.module
+          :
+          null
+        }
+        </div>
       </div>
     );
   }
 }
 
-export default Home
+const mapStateToProps = (state) => {
+  return {
+    display: state.newState.display,
+    module: state.newState.module,
+  }
+}
+
+const mapActionsToProps = {changeDisplay}
+
+export default connect(mapStateToProps, mapActionsToProps)(ModuleLayout)
