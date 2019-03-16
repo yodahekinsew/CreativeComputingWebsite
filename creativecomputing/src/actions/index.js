@@ -1,4 +1,5 @@
-export const changeDisplay = (module) => ({
-  type: 'CHANGE_TAB',
+export const changeDisplay = (display, module) => ({
+  type: 'CHANGE_DISPLAY',
+  display: display,
   module: module,
 })
