@@ -3,6 +3,7 @@ import '../App.css';
 import { connect } from 'react-redux';
 import {changeDisplay} from '../actions';
 
+
 class Module extends Component {
   constructor() {
     super();
