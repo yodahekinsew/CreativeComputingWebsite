@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Mission from "./mission.js"
 import Module from "./module.js"
@@ -11,7 +10,9 @@ class Home extends Components {
   }
 
   render() {
-
+    return (
+      <Module title="test"/>
+    );
   }
 }
 
