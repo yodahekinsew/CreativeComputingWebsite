@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import Mission from "./mission.js"
-import Module from "./module.js"
+import Modules from './moduleLayout.js'
 import Projects from "./projects.js"
 
-class Home extends Components {
+class Home extends Component {
   constructor() {
-    super(props);
+    super();
   }
 
   render() {
     return (
-      <Module title="test"/>
+      <div style={{height:'100%', width:'100%', backgroundColor:'#27556c'}}>
+        <Modules />
+      </div>
     );
   }
 }

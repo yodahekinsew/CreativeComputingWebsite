@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '../App.css';
 
-class Mission extends Components {
+class Mission extends Component {
   constructor() {
-    super(props);
+    super();
   }
 
   render() {
-
+    return (
+      <div>
+      </div>
+    );
   }
 }
 
