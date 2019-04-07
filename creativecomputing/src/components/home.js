@@ -3,6 +3,7 @@ import '../App.css';
 import Introduction from "./introduction.js"
 import Modules from './moduleLayout.js'
 import Projects from "./projects.js"
+import Header from "./header.js"
 import { connect } from 'react-redux';
 import {changeDisplay} from '../actions';
 
@@ -13,8 +14,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <Introduction/>
+      <div style={{height:'100%', width:'100%'}}>
+        {/* <Introduction/> */}
+        <Header/>
         <Modules/>
       </div>
     );
