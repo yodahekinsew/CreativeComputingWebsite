@@ -14,12 +14,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div>
-          <Introduction />
-        </div>
-        <div style={{height:'100%', width:'100%', backgroundColor:'#27556c', position:'relative'}}>
-          <Modules />
-        </div>
+        <Introduction/>
+        <Modules/>
       </div>
     );
   }
