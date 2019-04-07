@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import '../App.css';
 import scratch_cat from '../img/scratch_cat.png';
+import tera_b from '../img/tera_b.svg';
+import giga_b from '../img/Giga-b.svg';
+import nano_c from '../img/Nano-c.svg';
+import pico_a from '../img/Pico-a.svg';
 import { connect } from 'react-redux';
 import {changeDisplay} from '../actions';
 
@@ -23,6 +27,15 @@ const downloadLinks =
   "Community Issue Activity":"https://docs.google.com/presentation/d/18V_goISu9UhnLblCzjUaNsmrI-q7uPtAhCLjcL7DYeU/edit?usp=sharing",
 }
 
+const spriteImages = 
+{
+  "Name Activity": <img src={scratch_cat} alt={"Scratch Cat"} style={{height:'150px', width:'140px'}}/>,
+  "Community Activity": <img src={tera_b} alt={"Scratch Cat"} style={{height:'150px', width:'140px'}}/>,
+  "Role Model Activity": <img src={giga_b} alt={"Scratch Cat"} style={{height:'150px', width:'140px'}}/>,
+  "My Roots Activity": <img src={nano_c} alt={"Scratch Cat"} style={{height:'150px', width:'140px'}}/>,
+  "Community Issue Activity": <img src={pico_a} alt={"Scratch Cat"} style={{height:'150px', width:'140px'}}/>,
+}
+
 class Module extends Component {
   constructor() {
     super();
@@ -39,7 +52,7 @@ class Module extends Component {
               <div style={{position:'absolute', zIndex:1, height:'100%', width:'100%'}} onClick={()=>{this.props.changeDisplay(false,null)}}/>
               <div style={{minHeight:'500px', zIndex:2, height:'50vh',minWidth:'300px', width:'20vw', color: '#051c38', textAlign:'center', fontSize:'40px', alignItems:'center', display:'flex', flexDirection:'column', justifyContent:'center', backgroundColor:'#abb7c6', borderRadius:'25px 0px 0px 25px'}}>
                 {this.props.title}
-                <img src={scratch_cat} alt={"Scratch Cat"} style={{height:'300px', width:'260px'}}/>
+                {spriteImages[this.props.title]}
                 <span style={{fontSize: "30px"}}>download the activity <a href={downloadLinks[this.props.title]}>here</a></span>
               </div> 
               <div style={{minHeight:'500px', zIndex:2, height:'50vh', minWidth:'400px', width:'30vw', color: '#abb7c6', textAlign:'center', fontSize:'40px', backgroundColor:'#051c38', borderRadius:'0px 25px 25px 0px'}}>
@@ -52,7 +65,7 @@ class Module extends Component {
           }
         }}>
         <div style={{minWidth:'300px', width:'20vh', minHeight:'150px', height:'7.5vh', backgroundColor:'#4b688b', textAlign:'center', borderRadius:'25px 25px 0px 0px'}}>
-          <img src={scratch_cat} alt={"Scratch Cat"} style={{height:'150px', width:'140px'}}/>
+          {spriteImages[this.props.title]}
         </div>
         <div style={{minWidth:'300px', width:'20vh', minHeight:'50px', height:'2.5vh', backgroundColor:'#748ba7', textAlign:'center', fontSize:'25px', color:'#051c38', borderRadius:'0px 0px 25px 25px'}}>
           {this.props.title}
