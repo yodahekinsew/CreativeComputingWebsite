@@ -9,6 +9,15 @@ import { connect } from 'react-redux';
 import {changeDisplay} from '../actions';
 
 
+const activityTitles = 
+{
+  "Name Activity":"Stories of Your Name",
+  "Community Activity":"My Community",
+  "Role Model Activity":"Role Models",
+  "My Roots Activity":"My Roots",
+  "Community Issue Activity":"Community Issues",
+}
+
 const embedLinks = 
 {
   "Name Activity":"https://docs.google.com/presentation/d/e/2PACX-1vTc5wK54ur2NS8yK15UE3cwLHvtyQprkB19HsaWf-FauGXNdvJQEbHjPaf6yFHzXSWcvM3zVgjH9aWa/embed?start=false&loop=false&delayms=3000",
@@ -48,14 +57,14 @@ class Module extends Component {
           console.log(this.props.module);
           if (!this.props.display) {
             this.props.changeDisplay(true,
-            <div style={{minHeight:'600px', height:'100%', minWidth:'600px', width:'100vw', alignItems:'center', display:'flex', justifyContent:'center'}}>
+            <div style={{minHeight:'600px', height:'100vh', minWidth:'600px', width:'100vw', alignItems:'center', display:'flex', justifyContent:'center', backgroundColor:'rgba(0,0,0,.5)'}}>
               <div style={{position:'absolute', zIndex:1, height:'100%', width:'100%'}} onClick={()=>{this.props.changeDisplay(false,null)}}/>
-              <div style={{minHeight:'500px', zIndex:2, height:'50vh',minWidth:'300px', width:'20vw', color: '#051c38', textAlign:'center', fontSize:'40px', alignItems:'center', display:'flex', flexDirection:'column', justifyContent:'center', backgroundColor:'#abb7c6', borderRadius:'25px 0px 0px 25px'}}>
-                {this.props.title}
+              <div style={{minHeight:'500px', zIndex:2, height:'50vh',minWidth:'300px', width:'20vw', color:'whitesmoke', textAlign:'center', alignItems:'center', display:'flex', flexDirection:'column', justifyContent:'space-between', backgroundColor:'#0a82fa', borderRadius:'25px 0px 0px 25px'}}>
+                <span style={{fontSize:"40px", fontWeight:'bold', paddingTop:'10px'}}>{activityTitles[this.props.title]}</span>
                 {spriteImages[this.props.title]}
-                <span style={{fontSize: "30px"}}>download the activity <a href={downloadLinks[this.props.title]}>here</a></span>
+                <span style={{fontSize: "20px", paddingBottom:'10px'}}>download the activity <a href={downloadLinks[this.props.title]}>here</a></span>
               </div> 
-              <div style={{minHeight:'500px', zIndex:2, height:'50vh', minWidth:'400px', width:'30vw', color: '#abb7c6', textAlign:'center', fontSize:'40px', backgroundColor:'#051c38', borderRadius:'0px 25px 25px 0px'}}>
+              <div style={{minHeight:'500px', zIndex:2, height:'50vh', minWidth:'400px', width:'30vw', color: '#abb7c6', textAlign:'center', fontSize:'40px', backgroundColor:'#b3e0ff', borderRadius:'0px 25px 25px 0px'}}>
                 <iframe title={this.props.title} src={embedLinks[this.props.title]}
                 frameborder="0" width="400" height="500" allowfullscreen="false" mozallowfullscreen="false" webkitallowfullscreen="false"></iframe>
               </div>
@@ -64,11 +73,12 @@ class Module extends Component {
             this.props.changeDisplay(false, null);
           }
         }}>
-        <div style={{minWidth:'300px', width:'20vh', minHeight:'150px', height:'7.5vh', backgroundColor:'#4b688b', textAlign:'center', borderRadius:'25px 25px 0px 0px'}}>
+        
+        <div style={{minWidth:'300px', width:'20vh', minHeight:'150px', height:'7.5vh', backgroundColor:'#b3e0ff', textAlign:'center', borderRadius:'25px 25px 0px 0px'}}>
           {spriteImages[this.props.title]}
         </div>
-        <div style={{minWidth:'300px', width:'20vh', minHeight:'50px', height:'2.5vh', backgroundColor:'#748ba7', textAlign:'center', fontSize:'25px', color:'#051c38', borderRadius:'0px 0px 25px 25px'}}>
-          {this.props.title}
+        <div style={{minWidth:'300px', width:'20vh', minHeight:'50px', height:'2.5vh', backgroundColor:'#0a82fa', textAlign:'center', fontSize:'30px', fontWeight:'bold', color:'whitesmoke', borderRadius:'0px 0px 25px 25px'}}>
+          {activityTitles[this.props.title]}
         </div>
       </div>
     );
